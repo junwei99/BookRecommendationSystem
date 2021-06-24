@@ -1,0 +1,41 @@
+{%extends 'base.html' %}
+{% block head %}
+  {% endblock %}
+
+  {% block body %}
+  <body>
+    <div class="container">
+        <div class="col-md-6 mx-auto text-center">
+           <div class="header-title">
+              <h1 class="wv-heading--title">
+                 Log In
+              </h1>
+              <h2 class="wv-heading--subtitle">
+                 Log in to use book recommendation system
+              </h2>
+           </div>
+        </div>
+        <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="myform form ">
+                        <form method = "POST" action="">
+                            <div class="form-group">
+                                <input type="text" name="email"  class="form-control my-input" id="name" placeholder="Email" value = "{{request.form.email}}"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name = "password" class="form-control my-input" id="password" placeholder="Password" value = "{{request.form.password}}">
+                            </div>
+                            <div class="text-center ">
+                                <input type="submit" value="LOGIN" class=" btn btn-block send-button tx-tfm"></input>
+                            </div>
+                            <p style="font-size:17px;" class="small mt-3">Don't have an account? <a href="/register" class="ps-hero__content__link">Click here to register</p>
+                            </p>
+                            <p class="error error--hidden"></p>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

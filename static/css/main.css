@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+head{
+    margin: 0;
+}
+body{
+    margin:0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.jumbotron{
+    margin-bottom: 0px;
+}
+
+.button{
+    background-color: #3d488f; 
+  border: none;
+  color: white;
+  /* padding: 15px 32px; */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 100%;
+  height: 30px;
+  border-radius: 4px;
+  max-width : 500px;
+}
+
+.button:hover {background-color: #20264d}
+
+.send-button{
+    background: #3d488f;
+    width:100%;
+    font-weight: 600;
+    color:#fff;
+    padding: 8px 25px;
+    }
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none; 
+      margin: 0; 
+    }
+    .g-button{
+    color: #fff !important;
+    border: 1px solid #EA4335;
+    background: #ea4335 !important;
+    width:100%;
+    font-weight: 600;
+    color:#fff;
+    padding: 8px 25px;
+    }
+    .my-input{
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    cursor: text;
+    padding: 8px 10px;
+    transition: border .1s linear;
+    }
+    .header-title{
+    margin: 5rem 0;
+    }
+    h1{
+    font-size: 31px;
+    line-height: 40px;
+    font-weight: 600;
+    color:#4c5357;
+    }
+    h2{
+    color: #5e8396;
+    font-size: 21px;
+    line-height: 32px;
+    font-weight: 400;
+    }
+    .login-or {
+    position: relative;
+    color: #aaa;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    }
+    .span-or {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    margin-left: -25px;
+    background-color: #fff;
+    width: 100px;
+    text-align: center;
+    }
+    .hr-or {
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    }
+    @media screen and (max-width:480px){
+    h1{
+    font-size: 26px;
+    }
+    h2{
+    font-size: 20px;
+    }
+    }
+
+
+.container{
+    max-width: 1000px;
+}
+
+.card{
+    background-color:#edf2f2;
+    min-height: 450px;
+    max-height: 450px;
+}
+
+.card-body{
+    display:flex;
+    flex-direction:column;
+}
+
+.card h4{
+    padding-top:20px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card p{
+    font-size: 12px;
+}
+
+.book_info{
+    margin-top:auto;
+}
+
+.book_cover{
+    min-height: 200px;
+}
+
+.book_cover .bookimg{
+    height: auto;
+    width: 130px;
+    max-height: 300px;
+}
+
+.book_list .row{
+    padding-top:20px;
+}
+
+.book-info-img{
+    min-height: 250px;
+    max-height: 260px;
+    width:auto;
+}
+
+#book-info-container{
+    padding-top:50px;
+}
+
+#rateYo{
+    padding-bottom:50px;
+}
+
+.navbar-div ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top:0px;
+    overflow: hidden;
+    background-color: #333;
+    width: 100%;
+}
+
+.navbar-div li{
+    float: left;
+}
+
+.navbar-div li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color : white;
+}
+
+.navbar-div li form{
+    align-content: center;
+}
+
+.navbar-div li a:link{
+    color: white; text-decoration: none;
+}
+  
+.navbar-div li a:hover{
+    background-color: #111;
+}
+
+footer{
+    padding-top: 50px;
+    background-color: #333;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+footer p{
+    color:white;
+}
+
+#response-text{
+    color: black;
+    font-size: 22px;
+    line-height: 32px;
+    font-weight: 400;
+}

@@ -1,0 +1,51 @@
+{%extends 'base.html' %} {% block head %}
+<div class="container">
+  <li><a href="/">Home</a></li>
+  <!-- <li><a href="profile">Profile</a></li> -->
+  <li><a href="/recommendations">Recommendations</a></li>
+  <li><a href="/logout">Logout</a></li>
+  <!-- <li><a href="about.asp">About</a></li> -->
+  <li style="float: right"></li>
+</div>
+{% endblock %} {% block body %}
+<body>
+  <article>
+    <form class="form" method="POST">
+      <div class="row">
+        <div class="col-8">
+          <select class="js-example-basic-single" name="booktitle">
+            <option value="">Search for books</option>
+            {% for title in titles %}
+            <option value="{{title}}">{{title}}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <br />
+        <div class="col-4">
+          <input
+            class="button"
+            type="submit"
+            name="view_book"
+            value="View Book"
+          />
+        </div>
+      </div>
+    </form>
+    <br />
+    <div class="response">
+      <h2 id="response-text">{{response}}</h2>
+    </div>
+
+    <div class="book_list">
+      <!-- you can iterate on a list to add many items -->
+      {% for chunk in toPass %}
+      <div class="row">
+        {% for book in chunk %}
+        <div class="col-sm-3">{% include 'components/book.html' %}</div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  </article>
+</body>
+{% endblock %}

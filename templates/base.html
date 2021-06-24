@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/main.css') }}">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+
+
+    <header>
+      <div class="jumbotron">
+          <div class="jumbo_header">
+            <div class = "container">
+              <div class = "row">
+                <div class = "col-1">
+                  <a href="/"><img class = "mx-auto rounded" style = "max-width: 80px;" src ="{{url_for('static', filename='img/book.png')}}" class = "img-responsive"></a>
+                </div>
+                <div class = "col-11" style="padding-left:50px;">
+                  <form method="POST">
+                    <h1 ><a href="/">Smart Book Recommendation System</a></h1>
+                    <h5>Personalized Book recommendations for casual readers</h5> 
+                  </form>
+                </div>
+            </div>
+                
+                <br>
+            </div>
+            
+          </div>
+      </div>
+      <div class = "navbar-div" style="padding-top:0px;">
+        <ul>
+            {% block head %}
+              
+            {% endblock %}
+        </ul>
+    </div>
+    </header>
+
+    <script>
+      $(document).ready(function(){
+          $('.js-example-basic-single').select2({
+              minimumInputLength: 3,
+              placeholder: "Enter the book title you want to search for",
+              width: '100%'
+          });
+
+          $('.js-example-basic-single2').select2({
+              minimumInputLength: 0,
+              placeholder: "Select a booklist to add to",
+              width: '50%'
+          });
+
+          $('.js-example-basic-single3').select2({
+              minimumInputLength: 0,
+              placeholder: "Select a booklist to view",
+              width: '50%'
+          });
+
+          $("#rateYo").rateYo({
+            fullStar: true
+          });
+
+          var book_rating = '{{ book_rating }}';
+          var int_rating = parseInt(book_rating,10);
+
+          $("#rateYo").rateYo("rating", int_rating);
+
+          $("#rateYo").rateYo()
+              .on("rateyo.set", function (e, data) {
+                    var bookRating = data.rating
+                    // $.post("/bookinfo", {"bookRating": bookRating});
+                    // alert("The rating is set to " + bookRating + "!");
+                    //var msg = "wassup"
+                    $.post("/bookinfo", {"bookRating": bookRating});
+                });
+      });
+
+    </script>
+
+  </head>
+  <br>
+  <body>
+    
+    <div class = "container">
+    {% include 'messages.html' %}
+    {% block body %}{% endblock %}
+    </div>
+    <br>
+    <br>
+
+    <footer class = "website-footer">
+      <div class="container">
+              <div class = "col-12">
+                      <p>dataset : goodbooks-10k</p>   
+                      <p>© Copyright 2020 Low Jun Wei<p>
+              </div>
+          </div>
+      </div>
+  </footer>
+  </body>
+  
+</html> 

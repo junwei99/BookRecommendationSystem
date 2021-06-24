@@ -1,0 +1,42 @@
+{%extends 'base.html' %}
+
+{% block head %}
+<div class = "container">
+    <li ><a href="/">Home</a></li>
+    <li><a href="profile">Profile</a></li>
+    <li><a href="/recommendations">Recommendations</a></li>
+    <li><a href="/logout">Logout</a></li>
+    <li><a href="about.asp">About</a></li>
+    <li style="float:right">
+    </li>
+</div>
+{% endblock %}
+
+{% block body %}
+<body>
+    <article>
+
+        <form class="form" method="POST">
+            <div class = "row">
+                <div class = "col-8">
+                    <select class="js-example-basic-single" name="booktitle">
+                        <option value="">Search for books</option>
+                        {% for title in titles %}
+                            <option value="{{title}}">{{title}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <br>
+                <div class = "col-4">
+                    <input class="button" type="submit" name='view_book' value="View Book">
+                </div>
+            </div>
+        </form>
+        <br>
+        <h1>{{ name }}</h1>
+        <p>{{ email }} </p>
+
+        
+    </article>
+</body>
+{% endblock %}

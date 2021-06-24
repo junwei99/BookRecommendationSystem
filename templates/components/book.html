@@ -1,0 +1,22 @@
+<div class="book_container">
+    <div class="card ">
+        <div class="card-body">
+            <div class="book_rank">
+                <p style="color: black"># {{book['rank']}}</p>
+            </div>
+            <div class="book_row">
+                <div class="book_cover" >
+                    <form class="form_small" method="POST">
+                        <input type= "hidden" name="booktitle" value="{{book['title']}}">
+                        <input class= "bookimg" type="image" type="submit" src={{book['image_url']}} name='view_book' value="Similar Books">
+                    </form>
+                </div>
+                <div class="book_info ">
+                    <h4>{{book['title']}}</h4>
+                    <p>By: {{book['authors']}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

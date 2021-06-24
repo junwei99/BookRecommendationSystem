@@ -1,0 +1,71 @@
+{%extends 'base.html' %}
+
+{% block head %}
+<div class = "container">
+    <li ><a href="/">Home</a></li>
+    <li><a href="/profile">Profile</a></li>
+    <li><a href="/recommendations">Recommendations</a></li>
+    <li><a href="/logout">Logout</a></li>
+    <li><a href="about.asp">About</a></li>
+    <li style="float:right">
+    </li>
+</div>
+
+{% endblock %}
+
+{% block body %}
+<body>
+
+    <script>
+        
+        // var integer = parseInt(book_rating,10);
+    </script>
+
+    <article>
+
+        <form class="form" method="POST">
+            <div class = "row">
+                <div class = "col-8">
+                    <select class="js-example-basic-single" name="booktitle">
+                        <option value="">Search for books</option>
+                        {% for title in titles %}
+                            <option value="{{title}}">{{title}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <br>
+                <div class = "col-4">
+                    <input class="button" type="submit" name='view_book' value="View Book">
+                </div>
+            </div>
+        </form>
+
+        <div class="response">
+            <h2>{{response}}</h2>
+        </div>
+
+        <div class="book_container" id = "book-info-container"> 
+                    {% for book in book %}
+                    <div class="row">
+                            <div class="col-sm-3" >
+                                <a target="_blank" href={{book['url']}}><img class = "book-info-img rounded float-right" border="0" src={{book['image_url']}} /></a>
+                            </div>
+                            <div class="col-sm-6">
+                                    <h4>{{book['title']}}</h4>
+                                    <p>By: {{book['authors']}}</p>
+                                        <div class="col-sm-4" >
+                                            <p>Rate this book : </p>
+                                            <div id="rateYo"></div>
+                                        </div>
+                                    <form class="form_small" method="POST">
+                                        <input type= "hidden" name="booktitle" value="{{book['title']}}">
+                                        <input class="button" style = "height: 30px;" type="submit" name='similar_book' value="Get Books Similar to this book">
+                                    </form>
+                            </div>
+                    </div>
+                    {% endfor %}
+
+        </div>
+    </article>
+</body>
+{% endblock %}
